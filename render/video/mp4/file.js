@@ -1,10 +1,13 @@
 
-({ content, options, context }) => {
+({ content, inputs, context }) => {
+  const { _ } = context
+  const { controls, autoplay } = inputs
+  const setup = { controls: _.defaultTo(controls, true), autoplay: _.defaultTo(autoplay, false) }
   const rawURL = `${content}?raw=true`
   const html = `
     <div class="egh-center-justified" >
       <div class="egh-tm-10" >
-        <video id="rendered" class="video-js vjs-big-play-centered" controls preload="auto" data-setup="{}" >
+        <video id="rendered" class="video-js vjs-big-play-centered" preload="auto" data-setup='${JSON.stringify(setup)}' >
           <source src=${rawURL} type="video/mp4" />
         </video>
       </div >
