@@ -9,8 +9,8 @@
         </video>
       </div >
     </div >`
-  const css = { url: 'https://vjs.zencdn.net/7.10.2/video-js.css' }
+  const styles = { url: 'https://vjs.zencdn.net/7.10.2/video-js.css' }
   const script = { url: 'https://vjs.zencdn.net/7.10.2/video.min.js' }
 
-  return { html, css, script }
+  return { html, styles, script }
 }
