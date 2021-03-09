@@ -1,5 +1,5 @@
 
-(content, options, context) => {
+({ content, options, context }) => {
   const rawURL = `${content}?raw=true`
   const html = `
     <div className="egh-center-justified cssClass" >
@@ -10,7 +10,7 @@
       </div >
     </div >`
   const css = { url: 'https://vjs.zencdn.net/7.10.2/video-js.css' }
-  const script = {url: 'https://vjs.zencdn.net/7.10.2/video.min.js'}
+  const script = { url: 'https://vjs.zencdn.net/7.10.2/video.min.js' }
 
   return { html, css, script }
 }
