@@ -2,9 +2,9 @@
 ({ content, options, context }) => {
   const rawURL = `${content}?raw=true`
   const html = `
-    <div class="egh-center-justified cssClass" >
+    <div class="egh-center-justified" >
       <div class="egh-tm-10" >
-        <video id="rendered" class="video-js vjs-big-play-centered" controls preload="auto" >
+        <video id="rendered" class="video-js vjs-big-play-centered" controls preload="auto" data-setup="{}" >
           <source src=${rawURL} type="video/mp4" />
         </video>
       </div >
