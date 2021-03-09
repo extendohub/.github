@@ -4,5 +4,5 @@ description: MP4 rendering extension
 render:
   file:
     uses: ./file.js
-      with: 
-        enableControls: true
+    with: 
+      enableControls: true
