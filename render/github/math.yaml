@@ -3,7 +3,7 @@ description: Render math equations found in markdown
 
 render:
   markdown:
-    uses: apps://extendo-render/math.js
+    uses: apps://extendo-render/math
     with:
       dummy: 'test arg'
   
