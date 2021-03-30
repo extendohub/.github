@@ -8,8 +8,8 @@
 <html>
   <head>
     <title>${title}</title>
-    <link rel="stylesheet" href="https://vjs.zencdn.net/7.10.2/video-js.css" />
-    <script type="application/javascript" src="https://vjs.zencdn.net/7.10.2/video.min.js" />
+    <link rel="stylesheet" href="https://vjs.zencdn.net/7.10.2/video-js.css"></link>
+    <script type="application/javascript" src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
   </head>
   <body>
     <div class="egh-center-justified" >
