@@ -7,10 +7,8 @@
   const html = `
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title}</title>
-    <link rel="stylesheet" href="https://vjs.zencdn.net/7.10.2/video-js.css">
+    <link rel="stylesheet" href="https://vjs.zencdn.net/7.10.2/video-js.css" />
     <script type="application/javascript" src="https://vjs.zencdn.net/7.10.2/video.min.js" />
   </head>
   <body>
