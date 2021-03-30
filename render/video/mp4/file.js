@@ -10,6 +10,13 @@
     <title>${title}</title>
     <link rel="stylesheet" href="https://vjs.zencdn.net/7.10.2/video-js.css"></link>
     <script type="application/javascript" src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        videojs("rendered", {}, function() {
+          this.on('loadedalldata', () => window.parent.dispatchEvent('DOMContentLoaded'))
+        })
+      })
+    </script>
   </head>
   <body>
     <div class="egh-center-justified" >
