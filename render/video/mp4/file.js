@@ -11,7 +11,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://vjs.zencdn.net/7.10.2/video-js.css"></link>
-    <script type="application/javascript" src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
     <script>
       const register = function () {
           videojs("rendered", {}, function() {
@@ -37,6 +36,7 @@
         </video>
       </div >
     </div >
+    <script type="application/javascript" src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
   </body>
 </html>`
   const styles = { url: 'https://vjs.zencdn.net/7.10.2/video-js.css' }
