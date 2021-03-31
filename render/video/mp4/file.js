@@ -1,6 +1,6 @@
 ({ content, options, context }) => {
   const { _ } = context
-  const { controls, autoplay } = inputs
+  const { controls, autoplay } = options
   const setup = { controls: _.defaultTo(controls, true), autoplay: _.defaultTo(autoplay, false) }
   const rawURL = `${content}?raw=true`
   const html = `
