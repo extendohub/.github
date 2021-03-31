@@ -1,8 +1,0 @@
-name: MP4 render
-description: MP4 rendering extension
-
-render:
-  file:
-    uses: ./file.js
-    with: 
-      enableControls: true
