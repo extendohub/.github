@@ -1,13 +1,4 @@
 () => {
-  const html = `
-        <div id="xlsx-render"
-        </div >`
-  const scripts = [
-    { url: 'https://unpkg.com/xlsx/dist/xlsx.full.min.js' },
-    { url: 'https://unpkg.com/canvas-datagrid/dist/canvas-datagrid.js' },
-    script
-  ]
-
   const script = `
   async function _load() {
     // const url = 'https://github.com/app-extensions/test/blob/main/test.xlsx?raw=true'
@@ -50,5 +41,14 @@
   }
   run()
 `
+  const html = `
+    <div id="xlsx-render"
+    </div >`
+  const scripts = [
+    { url: 'https://unpkg.com/xlsx/dist/xlsx.full.min.js' },
+    { url: 'https://unpkg.com/canvas-datagrid/dist/canvas-datagrid.js' },
+    script
+  ]
+
   return { html, scripts }
 }
