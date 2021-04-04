@@ -30,10 +30,10 @@
       mountPoint.style.width = (mountPoint.parent.scrollWidth) + "px"
     }
     
-    window.addEventListener('resize', _resize)
+    // window.addEventListener('resize', _resize)
 
     mountPoint.style.display = "block"
-    _resize()
+    // _resize()
 
     /* set up table headers */
     var L = 0
