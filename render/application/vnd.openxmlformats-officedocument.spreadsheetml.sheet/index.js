@@ -24,8 +24,10 @@
     cdg.style.width = '100%'
 
     const _resize = () => {
+      // mountPoint.style.height = (window.innerHeight - 200) + "px"
+      // mountPoint.style.width = (window.innerWidth - 200) + "px"
       mountPoint.style.height = (window.innerHeight - 200) + "px"
-      mountPoint.style.width = (window.innerWidth - 200) + "px"
+      mountPoint.style.width = (mountPoint.parent.scrollWidth) + "px"
     }
     
     window.addEventListener('resize', _resize)
