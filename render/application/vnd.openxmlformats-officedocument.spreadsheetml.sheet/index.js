@@ -8,7 +8,8 @@
     if (!response.ok) return
     const content = await response.arrayBuffer()
     const workbook = XLSX.read(new Uint8Array(content), { type: "array" })
-    return XLSX.utils.to_json(workbook)[workbook.SheetNames[0]]
+    const sheet = workbook.Sheets[workbook.SheetNames[0]]
+    return XLSX.utils.sheet_to_json(sheet)
   }
 
   function _resize() {
