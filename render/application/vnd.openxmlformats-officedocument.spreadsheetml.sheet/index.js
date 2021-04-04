@@ -22,7 +22,7 @@
     cdg.style.height = '100%'
     cdg.style.width = '100%'
 
-    const _resize() => {
+    const _resize = () => {
       mountPoint.style.height = (window.innerHeight - 200) + "px"
       mountPoint.style.width = (window.innerWidth - 200) + "px"
     }
