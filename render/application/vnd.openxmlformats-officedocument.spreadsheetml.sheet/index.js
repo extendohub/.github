@@ -19,15 +19,15 @@
 
   const run = async () => {
     const json = await _load()
+    const mountPoint = document.getElementById('xlsx-render')
     const cdg = canvasDatagrid({
-      parentNode: _grid
+      parentNode: mountPoint
     })
     cdg.style.height = '100%'
     cdg.style.width = '100%'
 
     window.addEventListener('resize', _resize);
 
-    const mountPoint = document.getElementById('xlsx-render')
     mountPoint.style.display = "block"
     _resize()
 
