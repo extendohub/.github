@@ -12,11 +12,6 @@
     return XLSX.utils.sheet_to_json(sheet)
   }
 
-  function _resize() {
-    _grid.style.height = (window.innerHeight - 200) + "px";
-    _grid.style.width = (window.innerWidth - 200) + "px";
-  }
-
   const run = async () => {
     const json = await _load()
     const mountPoint = document.getElementById('xlsx-render')
@@ -26,14 +21,19 @@
     cdg.style.height = '100%'
     cdg.style.width = '100%'
 
-    window.addEventListener('resize', _resize);
+    const _resize() => {
+      mountPoint.style.height = (window.innerHeight - 200) + "px"
+      mountPoint.style.width = (window.innerWidth - 200) + "px"
+    }
+    
+    window.addEventListener('resize', _resize)
 
     mountPoint.style.display = "block"
     _resize()
 
     /* set up table headers */
     var L = 0
-    json.forEach(function (r) { if (L < r.length) L = r.length; })
+    json.forEach(function (r) { if (L < r.length) L = r.length })
     for (var i = json[0].length; i < L; ++i) {
       json[0][i] = ""
     }
