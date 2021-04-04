@@ -42,10 +42,8 @@
   }
   run()
 `
-  const html = `
-    <div id="xlsx-render"
-    </div >`
-  const scripts = [
+const html = '<div id="xlsx-render"></div>'
+const scripts = [
     { url: 'https://unpkg.com/xlsx/dist/xlsx.full.min.js' },
     { url: 'https://unpkg.com/canvas-datagrid/dist/canvas-datagrid.js' },
     script
