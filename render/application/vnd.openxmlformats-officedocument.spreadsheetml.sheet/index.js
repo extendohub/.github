@@ -13,6 +13,7 @@
   }
 
   const run = async () => {
+    debugger
     const json = await _load()
     const mountPoint = document.getElementById('xlsx-render')
     const cdg = canvasDatagrid({
