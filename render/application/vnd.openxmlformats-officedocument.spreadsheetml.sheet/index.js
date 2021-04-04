@@ -9,7 +9,7 @@
     const content = await response.arrayBuffer()
     const workbook = XLSX.read(new Uint8Array(content), { type: "array" })
     const sheet = workbook.Sheets[workbook.SheetNames[0]]
-    const result = XLSX.utils.sheet_to_json(sheet)
+    const result = XLSX.utils.sheet_to_json(sheet, { header: 1 })
     return result
   }
 
