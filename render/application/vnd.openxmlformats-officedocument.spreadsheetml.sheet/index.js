@@ -6,7 +6,7 @@
     const url = location.href + '?raw=true'
     const response = await fetch(url, { mode:"cors"})
     if (!response.ok) return
-    const content = await response.body.arrayBuffer()
+    const content = await response.arrayBuffer()
     const workbook = XLSX.read(new Uint8Array(content), { type: "array" })
     return to_json(workbook)[workbook.SheetNames[0]]
   }
