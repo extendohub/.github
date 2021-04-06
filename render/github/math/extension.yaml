@@ -5,5 +5,7 @@ render:
   markdown:
     uses: ./index.js
     with:
-      dummy: 'test input'
-  
+      tex:
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      svg: 
+        fontCache: global
