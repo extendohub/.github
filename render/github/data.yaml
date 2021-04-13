@@ -1,0 +1,6 @@
+name: Data rendering
+description: Data rendering in markdown
+
+render:
+  markdown:
+    uses: service:data
