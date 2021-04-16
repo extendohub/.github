@@ -1,7 +1,7 @@
 async ({ content, inputs }) => {
-  const data = typeof(content) === 'string'
-    ? { url: content}
-    : { values: JSON.stringify(content, null, 2)}
+  const data = typeof (content) === 'string'
+    ? { url: content }
+    : { values: JSON.stringify(content, null, 2) }
   const script = `
     const vlSpec = {
       $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
@@ -19,4 +19,5 @@ async ({ content, inputs }) => {
     script
   ]
   html = `<div id="vis"></div>`
+  return { html, scripts }
 }
