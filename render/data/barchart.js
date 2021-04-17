@@ -1,14 +1,12 @@
-async ({ content, inputs }) => {
-  const data = typeof (content) === 'string'
-    ? { url: content }
-    : { values: JSON.stringify(content, null, 2) }
+async ({ content, options }) => {
+  const data = typeof (content) === 'string' ? { url: content } : { values: content }
   const script = `
     const vlSpec = {
       $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-      description: '${inputs.description || 'Bar chart'}',
-      data: ${data},
+      description: '${options.description || 'Bar chart'}',
+      data: ${JSON.stringify(data, null, 2)},
       mark: 'bar',
-      encoding: ${JSON.stringify(inputs.encoding, null, 2)}
+      encoding: ${JSON.stringify(options.encoding, null, 2)}
     };
     vegaEmbed('#vis', vlSpec);
   `
