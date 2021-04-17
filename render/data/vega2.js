@@ -20,7 +20,9 @@ async ({ content, options }) => {
   </head>
   <body>
     <div id="vis"></div>
-    ${script}
+    <script type="text/javascript">
+      ${script}
+    </script>
   </body>
 </html>
 `
