@@ -8,6 +8,7 @@ async ({ content, options }) => {
       mark: '${options.mark}',
       encoding: ${JSON.stringify(options.encoding, null, 2)}
     };
+    debugger
     vegaEmbed('#vis', vlSpec);
   `
   const scripts = [
