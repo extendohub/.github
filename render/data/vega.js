@@ -10,12 +10,19 @@ async ({ content, options }) => {
     };
     vegaEmbed('#vis', vlSpec);
   `
-  const scripts = [
-    { url: 'https://cdn.jsdelivr.net/npm/vega@5.19.1' },
-    { url: 'https://cdn.jsdelivr.net/npm/vega-lite@5.0.0' },
-    { url: 'https://cdn.jsdelivr.net/npm/vega-embed@6.15.1' },
-    script
-  ]
-  html = `<div id="vis"></div>`
-  return { html, scripts }
+  const html = `
+<html>
+  <head>
+    <title>Embedding Vega-Lite</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+    ${script}
+  </body>
+</html>
+`
+  return { html }
 }
