@@ -1,12 +1,29 @@
-async ({ content, context }) => {
-  const table = content || await context.render.getContent()
-  if (!table) return null
-  const header = `<table>`
-  const headings = ` <tr>\n    <th>${Object.keys(table[0]).join(`</th>\n    <th>`)}</th>\n  </tr>`
-  const rows = table.map(row =>
-    ` <tr>\n    <td>${Object.values(row).join(`</td>\n    <td>`)}</td>\n  </tr>`
+async ({ content, context, options }) => {
+  const data = content || await context.render.getContent()
+  if (!data) return null
+  const table = parseCSV(data)
+  const lines = []
+  lines.push(`<table>`)
+  if (options.headings) lines.push(` <tr><th>${table[0].join(`</th><th>`)}</th></tr>`);
+  (options.headings ? table.slice(1) : table).forEach(row =>
+    lines.push(` <tr><td>${row.join(`</td><td>`)}</td></tr>`))
+  lines.push('</table>')
+  return { html: lines.join('\n') }
+}
+
+function parseCSV(data, delimiter) {
+  delimiter = delimiter || ","
+  const pattern = new RegExp(
+    "(\\" + delimiter + "|\\r?\\n|\\r|^)" + "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" + "([^\"\\" + delimiter + "\\r\\n]*))", "gi"
   )
-  const footer = '</table>'
-  const html = `${header}/n${headings}/n${rows}/n${footer}/n`
-  return { html }
+  const result = [[]]
+  let matches = null
+  while (matches = pattern.exec(data)) {
+    var matchedDelimiter = matches[1]
+    if (matchedDelimiter.length && matchedDelimiter !== delimiter)
+      result.push([])
+    const matchedValue = matches[2] ? matches[2].replace(new RegExp("\"\"", "g"), "\"") : matches[3]
+    result[result.length - 1].push(matchedValue)
+  }
+  return result
 }
