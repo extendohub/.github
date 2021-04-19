@@ -1,5 +1,5 @@
 async ({ content, context, options }) => {
-  const data = content || await context.render.getContent()
+  const data = content || await context.render.getContent({}, 'utf8')
   if (!data) return null
   const table = parseCSV(data)
   const lines = []

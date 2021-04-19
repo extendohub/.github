@@ -1,4 +1,5 @@
-async ({ content, options, context }) => {
+async ({ options, context }) => {
+  const content = await context.render.getContent({}, 'json')
   const data = typeof (content) === 'string' ? { url: content } : { values: content }
   const unique = context.render.hash.slice(-5)
   const script = `
