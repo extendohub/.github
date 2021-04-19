@@ -1,5 +1,6 @@
-async ({ content }) => {
-  const table = content
+async ({ content, context }) => {
+  const table = content || await context.render.getContent()
+  if (!table) return null
   const header = `<table>`
   const headings = ` <tr>\n    <th>${Object.keys(table[0]).join(`</th>\n    <th>`)}</th>\n  </tr>`
   const rows = table.map(row =>
