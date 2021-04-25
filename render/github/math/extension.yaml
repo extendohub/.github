@@ -3,7 +3,7 @@ description: Render math equations found in markdown
 
 render:
   markdown:
-    uses: ./index.js
+    uses: apps://extendo-render/math
     with:
       tex:
         inlineMath: [['$', '$'], ['\\(', '\\)']]
