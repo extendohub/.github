@@ -1,5 +1,5 @@
 name: extendo-render install
-description: Installation of the extendo-render app 
+description: Installation of the extendo-render app
 for: repositories
 where:
   - resource.isPrivate == false
