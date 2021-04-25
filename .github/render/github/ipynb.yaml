@@ -1,9 +1,0 @@
-name: Jupyter notebook rendering
-description: Execute and render full Jupyter notebook files
-
-render:
-  file:
-    uses: docker://extendo-render:jupyter
-    with:
-      commandLine: node /jupyter.js
-  
