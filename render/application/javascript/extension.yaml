@@ -1,0 +1,7 @@
+name: JS render
+description: Render large (minimized) JavaScript files in a more readable form
+
+render:
+  file:
+    uses: app-extensions/extendo-renderers/js/dist/index.js
+  

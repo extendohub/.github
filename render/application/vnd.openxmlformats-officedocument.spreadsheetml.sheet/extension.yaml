@@ -3,7 +3,5 @@ description: Render XLSX files
 
 render:
   file:
-    uses: ./index.js
-    with:
-      dummy: 'test input'
+    uses: app-extensions/extendo-renderers/xlsx/xlsx.js
   
