@@ -3,8 +3,8 @@ async ({ options, context }) => {
   const data = typeof (content) === 'string' ? { url: content } : { values: content }
   const unique = context.render.hash.slice(-5)
   const encoding = {
-    x: { field: options.xcolumn, type: 'temporal'},
-    y: { field: options.ycolumns, type: 'quantitative'}
+    x: { field: options.xColumn, type: 'temporal'},
+    y: { field: options.yColumns, type: 'quantitative'}
   }
   const script = `
     const vlSpec = {
