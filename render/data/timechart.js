@@ -4,12 +4,13 @@ async ({ options, context }) => {
   const unique = context.render.hash.slice(-5)
   const encoding = {
     x: { field: options.xColumn, type: 'temporal'},
-    y: { field: options.yColumns, type: 'quantitative'}
+    y: { field: options.yColumns[0], type: 'quantitative'}
   }
   const script = `
     const vlSpec = {
       $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
       description: '${options.title}',
+      width: 'auto'
       data: ${JSON.stringify(data, null, 2)},
       mark: 'line',
       encoding: ${JSON.stringify(encoding, null, 2)}
@@ -25,7 +26,9 @@ async ({ options, context }) => {
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
   </head>
   <body>
-    <div id="vis${unique}"></div>
+    <div style="display: flex; justify-content: center;">
+      <div id="vis${unique}"></div>
+    </div>
     <script type="text/javascript">
       ${script}
     </script>
