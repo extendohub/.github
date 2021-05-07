@@ -10,7 +10,7 @@ async ({ options, context }) => {
     const vlSpec = {
       $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
       description: '${options.title}',
-      width: 'container',
+      width: 500,
       data: ${JSON.stringify(data, null, 2)},
       mark: 'line',
       encoding: ${JSON.stringify(encoding, null, 2)}
@@ -27,9 +27,7 @@ async ({ options, context }) => {
   </head>
   <body>
     <div style="display: flex; justify-content: center;">
-      <div style="width: 80%;">
-        <div id="vis${unique}"></div>
-      </div>
+      <div id="vis${unique}"></div>
     </div>
     <script type="text/javascript">
       ${script}
