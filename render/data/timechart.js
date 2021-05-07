@@ -10,7 +10,7 @@ async ({ options, context }) => {
     const vlSpec = {
       $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
       description: '${options.title}',
-      width: 'auto'
+      width: 'auto',
       data: ${JSON.stringify(data, null, 2)},
       mark: 'line',
       encoding: ${JSON.stringify(encoding, null, 2)}
