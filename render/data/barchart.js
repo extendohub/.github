@@ -19,7 +19,9 @@ async ({ options, context }) => {
     <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.1"></script>
   </head>
   <body>
-    <div id="vis${unique}"></div>
+    <div style="display: flex; justify-content: center;">
+      <div id="vis${unique}"></div>
+    </div>
     <script type="text/javascript">
       ${script}
     </script>
