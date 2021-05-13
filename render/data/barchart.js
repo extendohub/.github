@@ -5,7 +5,7 @@ async ({ options, context }) => {
     const data = ${JSON.stringify(content, null, 2)}
     const options = {
       marks: [
-        Plot.barX(data, { x1: 0, x2: ${options.xColumn}, y: ${options.yColumns[0]} })
+        Plot.barX(data, { x1: 0, x2: '${options.xColumn}', y: '${options.yColumns[0]}' })
       ]
     }
     const target = document.querySelector('#vis${unique}')
