@@ -3,10 +3,11 @@ async ({ options, context }) => {
   const unique = context.render.hash.slice(-5)
   const script = `
     const data = ${JSON.stringify(content, null, 2)}
+    const marks = ${JSON.stringify(options.marks)}.map(mark => {
+      return Plot[mark.type](mark.data === 'content' ? data : mark.data, mark.layout)
+    })
     const options = {
-      marks: [
-        Plot.line(data, ${JSON.stringify(options.layout)})
-      ] 
+      marks
     }
     const target = document.querySelector('#vis${unique}')
     target.appendChild(Plot.plot(options))
