@@ -4,7 +4,7 @@ async ({ options, context }) => {
   const script = `
     const data = ${JSON.stringify(content, null, 2)}
     const marks = ${JSON.stringify(options.marks)}.map(mark => {
-      return Plot[mark.type](mark.data === 'content' ? data : mark.data, mark.layout)
+      return Plot[mark.type](mark.data || data, mark.layout)
     })
     const options = {
       marks
