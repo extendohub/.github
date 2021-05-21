@@ -16,13 +16,13 @@ async ({ options, context }) => {
       import * as observables from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js"
       const { Runtime, Inspector } = observables
       console.log('in the code 2')
-      // (async () => {
-      //   console.log('in the code 3')
+      (async () => {
+        console.log('in the code 3')
       //   const { define } = await import(${stringModule})
       //   console.log('in the code 4')
       //   const runtime = new Runtime()
       //   const main = runtime.module(define, Inspector.into(document.body))
-      // })()
+      })()
     </script>`
   const html = `<html>
   <meta charset="utf-8">
