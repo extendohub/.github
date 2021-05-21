@@ -23,7 +23,7 @@ async ({ options, context }) => {
         console.dir(notebook.define)
         const runtime = new Runtime()
         console.log('in the code 4.1')
-        const main = runtime.module(notebook.define, Inspector.into(document.body))
+        const main = runtime.module(notebook.default, Inspector.into(document.body))
         console.log('in the code 4.2')
       })
       console.log('in the code 5')
