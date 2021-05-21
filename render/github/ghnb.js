@@ -13,7 +13,8 @@ async ({ options, context }) => {
   const script = `
     <script type="module">
       console.log('in the code')
-      import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js"
+      import * as observables from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js"
+      const { Runtime, Inspector } = observables
       console.log('in the code 2')
       (async () => {
         console.log('in the code 3')
