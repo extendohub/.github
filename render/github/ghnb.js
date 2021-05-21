@@ -16,7 +16,7 @@ async ({ options, context }) => {
       import * as observables from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js"
       const { Runtime, Inspector } = observables
       console.log('in the code 2')
-      import(${stringModule}).then(notebook => {
+      import('${stringModule}').then(notebook => {
         console.log('in the code 4')
         const runtime = new Runtime()
         console.log('in the code 4.1')
