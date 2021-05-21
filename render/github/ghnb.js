@@ -12,22 +12,11 @@ async ({ options, context }) => {
   const stringModule = `data:text/javascript;base64,${encoded}`
   const script = `
     <script type="module">
-      console.log('in the code')
-      import * as observables from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js"
-      const { Runtime, Inspector } = observables
-      console.log('in the code 2')
+      import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js"
       import('${stringModule}').then(notebook => {
-        console.log('in the code 4')
-        console.dir(notebook)
-        console.log('in the code 4 default')
-        console.dir(notebook.default)
         const runtime = new Runtime()
-        console.log('in the code 4.1')
-        debugger
         const main = runtime.module(notebook.default, Inspector.into(document.body))
-        console.log('in the code 4.2')
       })
-      console.log('in the code 5')
     </script>`
   const html = `<html>
   <meta charset="utf-8">
