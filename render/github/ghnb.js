@@ -18,6 +18,9 @@ async ({ options, context }) => {
       console.log('in the code 2')
       import('${stringModule}').then(notebook => {
         console.log('in the code 4')
+        console.dir(notebook)
+        console.log('in the code 4 define')
+        console.dir(notebook.define)
         const runtime = new Runtime()
         console.log('in the code 4.1')
         const main = runtime.module(notebook.define, Inspector.into(document.body))
@@ -29,8 +32,7 @@ async ({ options, context }) => {
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@3/dist/inspector.css">
   <body>
-    ${script.trim()}
-  </body>
+  ${script.trim()}
 </html>
 `
   return { html }
