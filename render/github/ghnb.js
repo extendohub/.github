@@ -19,8 +19,8 @@ async ({ options, context }) => {
       import('${stringModule}').then(notebook => {
         console.log('in the code 4')
         console.dir(notebook)
-        console.log('in the code 4 define')
-        console.dir(notebook.define)
+        console.log('in the code 4 default')
+        console.dir(notebook.default)
         const runtime = new Runtime()
         console.log('in the code 4.1')
         const main = runtime.module(notebook.default, Inspector.into(document.body))
