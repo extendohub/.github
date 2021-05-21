@@ -23,6 +23,7 @@ async ({ options, context }) => {
         console.dir(notebook.default)
         const runtime = new Runtime()
         console.log('in the code 4.1')
+        debugger
         const main = runtime.module(notebook.default, Inspector.into(document.body))
         console.log('in the code 4.2')
       })
