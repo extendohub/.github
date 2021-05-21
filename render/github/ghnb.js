@@ -5,7 +5,7 @@ async ({ options, context }) => {
       return { frontmatter: matches[1], markdown: content.slice(matches[0].length + matches.index) }
     return { frontmatter: undefined, markdown: content }
   }
-  
+
   const content = await context.render.getContent({})
   const { frontmatter, markdown } = splitMarkdown(content)
   const encoded = Buffer.from(markdown).toString('base64');
@@ -16,13 +16,14 @@ async ({ options, context }) => {
       import * as observables from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js"
       const { Runtime, Inspector } = observables
       console.log('in the code 2')
-      (async () => {
-        console.log('in the code 3')
-      //   const { define } = await import(${stringModule})
-      //   console.log('in the code 4')
-      //   const runtime = new Runtime()
-      //   const main = runtime.module(define, Inspector.into(document.body))
-      })()
+      import(${stringModule}).then(notebook => {
+        console.log('in the code 4')
+        const runtime = new Runtime()
+        console.log('in the code 4.1')
+        const main = runtime.module(notebook.define, Inspector.into(document.body))
+        console.log('in the code 4.2')
+      })
+      console.log('in the code 5')
     </script>`
   const html = `<html>
   <meta charset="utf-8">
