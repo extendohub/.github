@@ -14,7 +14,8 @@ async ({ options, context }) => {
     <script type="module">
       (async () => {
         console.log('in the code')
-        // import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js"
+        import * as obserables from 'https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js'
+        const { Runtime, Inspector } = observables
         // const { define } = await import(${stringModule})
         // const runtime = new Runtime()
         // const main = runtime.module(define, Inspector.into(document.body))
