@@ -8,12 +8,13 @@ async ({ options, context }) => {
   
   const content = await context.render.getContent({})
   const { frontmatter, markdown } = splitMarkdown(content)
-  const encoded = `data:text/javascript;base64,${btoa(markdown)}`
+  const encoded = new Buffer(markdown).toString('base64');
+  const stringModule = `data:text/javascript;base64,${btoa(encoded)}`
   const script = `
       <script type="module">
         (async () => {
           import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js"
-          const { define } = await import(${encoded})
+          const { define } = await import(${stringModule})
           const runtime = new Runtime()
           const main = runtime.module(define, Inspector.into(document.body))
         })()
