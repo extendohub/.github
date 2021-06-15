@@ -1,5 +1,5 @@
-export default inputs => {
-  const root = document.createElement('div')
-  root.innerText = 'hey there'
+export default ({ content }) => {
+  const root = document.createElement('span')
+  root.innerText = content.toString
   return root
 }
