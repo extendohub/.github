@@ -4,7 +4,7 @@ module.exports = async ({ content, context }) => {
   let file = null
   let node = null
   if (content.match(/^https:\/\/(www.)?figma.com\/file/)) {
-    const matches = content.match(/file\/(.*?)\/.*?node-id=(.*)(?:(?:%3A)|:)(.*)$/)
+    const matches = content.match(/file\/(.*?)\/.*?node-id=(.*)(?:(?:%3A)|:)(.*)$/m)
     if (!matches) return null
     file = matches[1]
     node = `${matches[2]}:${matches[3]}`
