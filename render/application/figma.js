@@ -1,7 +1,7 @@
 const https = require('https')
 
 module.exports = async ({ content, context }) => {
-  const [file, node] = content.split('#')
+  const [file, node] = content.trim().split('#')
 
   const response = await new Promise(resolve => {
     const headers = {
@@ -19,6 +19,6 @@ module.exports = async ({ content, context }) => {
   const images = JSON.parse(data).images
   const imageUrl = images[node]
   if (!imageUrl) return null
-  const html = `<img src=${imageUrl} />`
+  const html = `<img src="${imageUrl}" />`
   return { html }
 }
