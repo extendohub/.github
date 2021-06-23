@@ -3,7 +3,7 @@ const https = require('https')
 module.exports = async ({ content, context }) => {
   let file = null
   let node = null
-  if (content.startsWith('https://figma.com/file')) {
+  if (content.match(/^https:\/\/(www.)?figma.com\/file/)) {
     const matches = content.match(/file\/(.*?)\/.*?node-id=(.*)(?:(?:%3A)|:)(.*)$/)
     if (!matches) return null
     file = matches[1]
