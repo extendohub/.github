@@ -28,5 +28,5 @@ module.exports = async ({ content, context }) => {
   const imageUrl = images[node]
   if (!imageUrl) return null
   const html = `<img src="${imageUrl}" />`
-  return { html }
+  return { html } 
 }
