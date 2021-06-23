@@ -1,9 +1,11 @@
-async ({ content, context }) => {
+const https = require('https')
+
+module.exports = async ({ content, context }) => {
   const [file, node] = content.split('#')
 
   const response = await new Promise(resolve => {
     https.get(`https://api.figma.com/v1/images/${file}?ids=${node}`, resolve);
-  });
+  })
   let data = await new Promise((resolve, reject) => {
     let data = ''
     response.on('data', chunk => data += chunk)
