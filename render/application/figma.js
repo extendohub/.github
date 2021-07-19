@@ -1,6 +1,8 @@
-const https = require('https')
+// const https = require('https')
+import https from 'https'
 
-module.exports = async ({ content, context }) => {
+// module.exports = async ({ content, context }) => {
+export default async ({ content, context }) => {
   let file = null
   let node = null
   if (content.match(/^https:\/\/(www.)?figma.com\/file/)) {
