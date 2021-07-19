@@ -1,7 +1,5 @@
-// const https = require('https')
 import https from 'https'
 
-// module.exports = async ({ content, context }) => {
 export default async ({ content, context }) => {
   let file = null
   let node = null
@@ -15,7 +13,7 @@ export default async ({ content, context }) => {
 
   const response = await new Promise(resolve => {
     const headers = {
-      'X-FIGMA-TOKEN': context.environment.figmaToken
+      'X-FIGMA-TOKEN': process.env.figmaToken
     }
     https.get(`https://api.figma.com/v1/images/${file}?ids=${node}`, { headers }, resolve);
   })
