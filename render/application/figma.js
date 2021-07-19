@@ -13,7 +13,7 @@ export default async ({ content, context }) => {
 
   const response = await new Promise(resolve => {
     const headers = {
-      'X-FIGMA-TOKEN': process.env.FIGMA_TIKEN
+      'X-FIGMA-TOKEN': process.env.FIGMA_TOKEN
     }
     https.get(`https://api.figma.com/v1/images/${file}?ids=${node}`, { headers }, resolve);
   })
