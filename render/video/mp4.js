@@ -1,4 +1,4 @@
-({ options, context }) => {
+export default ({ options, context }) => {
   const { _ } = context
   const { controls, autoplay } = options
   const setup = { controls: _.defaultTo(controls, true), autoplay: _.defaultTo(autoplay, false) }
