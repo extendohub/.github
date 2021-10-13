@@ -1,11 +1,11 @@
-async ({ content, context, options }) => {
-  const data = content || await context.render.getContent({}, 'utf8')
+async ({ context, inputs }) => {
+  const data = inputs.content || await context.render.getContent({}, 'utf8')
   if (!data) return null
   const table = parseCSV(data)
   const lines = []
   lines.push(`<table>`)
-  if (options.headings) lines.push(` <tr><th>${table[0].join(`</th><th>`)}</th></tr>`);
-  (options.headings ? table.slice(1) : table).forEach(row =>
+  if (inputs.headings) lines.push(` <tr><th>${table[0].join(`</th><th>`)}</th></tr>`);
+  (inputs.headings ? table.slice(1) : table).forEach(row =>
     lines.push(` <tr><td>${row.join(`</td><td>`)}</td></tr>`))
   lines.push('</table>')
   return { html: lines.join('\n') }

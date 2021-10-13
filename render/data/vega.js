@@ -1,14 +1,14 @@
-async ({ options, context }) => {
+async ({ inputs, context }) => {
   const content = await context.render.getContent({}, 'json')
   const data = typeof (content) === 'string' ? { url: content } : { values: content }
   const unique = context.render.hash.slice(-5)
   const script = `
     const vlSpec = {
       $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-      description: '${options.description || 'Bar chart'}',
+      description: '${inputs.description || 'Bar chart'}',
       data: ${JSON.stringify(data, null, 2)},
-      mark: '${options.mark}',
-      encoding: ${JSON.stringify(options.encoding, null, 2)}
+      mark: '${inputs.mark}',
+      encoding: ${JSON.stringify(inputs.encoding, null, 2)}
     };
     vegaEmbed('#vis${unique}', vlSpec);
   `

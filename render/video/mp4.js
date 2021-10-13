@@ -1,6 +1,6 @@
-export default ({ options, context }) => {
+export default ({ inputs, context }) => {
   const { _ } = context
-  const { controls, autoplay } = options
+  const { controls, autoplay } = inputs
   const setup = { controls: _.defaultTo(controls, true), autoplay: _.defaultTo(autoplay, false) }
   const html = `
       <div class="egh-center-justified" >

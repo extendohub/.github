@@ -1,9 +1,9 @@
-async ({ options, context }) => {
+async ({ inputs, context }) => {
   const content = await context.render.getContent({}, 'json')
   const unique = context.render.hash.slice(-5)
   const script = `
     const data = ${JSON.stringify(content, null, 2)}
-    const marks = ${JSON.stringify(options.marks)}.map(mark => {
+    const marks = ${JSON.stringify(inputs.marks)}.map(mark => {
       return Plot[mark.type](mark.data || data, mark.layout)
     })
     const options = {

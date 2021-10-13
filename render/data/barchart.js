@@ -1,11 +1,11 @@
-async ({ options, context }) => {
+async ({ inputs, context }) => {
   const content = await context.render.getContent({}, 'json')
   const unique = context.render.hash.slice(-5)
   const script = `
     const data = ${JSON.stringify(content, null, 2)}
     const options = {
       marks: [
-        Plot.barY(data, { x: '${options.xColumn}', y: '${options.yColumns[0]}' })
+        Plot.barY(data, { x: '${inputs.xColumn}', y: '${inputs.yColumns[0]}' })
       ]
     }
     const target = document.querySelector('#vis${unique}')
