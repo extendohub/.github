@@ -1,0 +1,6 @@
+name: extendo-api install
+description: Installation of the extendo-api app
+installation:
+  uses: apps://extendo-api@v1.0
+  with: 
+    interesting: great value
