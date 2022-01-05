@@ -1,0 +1,8 @@
+name: extendo-settings install
+description: Installation of the extendo-settings app
+for: repositories
+where:
+  - resource.isPrivate == false
+
+installation:
+  uses: apps://extendo-settings@v1.0
