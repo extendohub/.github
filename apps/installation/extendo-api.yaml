@@ -1,8 +1,4 @@
 name: extendo-api install
 description: Installation of the extendo-api app
-for: repositories
-where:
-  - resource.isPrivate == false
-
 installation:
   uses: apps://extendo-api@v1.0
