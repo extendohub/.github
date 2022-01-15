@@ -1,7 +1,7 @@
-async ({ inputs, context }) => {
-  const content = await context.render.getContent({}, 'json')
+async ({ inputs, render }) => {
+  const content = await render.getContent({}, 'json')
   const data = typeof (content) === 'string' ? { url: content } : { values: content }
-  const unique = context.render.hash.slice(-5)
+  const unique = render.hash.slice(-5)
   const script = `
     const vlSpec = {
       $schema: 'https://vega.github.io/schema/vega-lite/v5.json',

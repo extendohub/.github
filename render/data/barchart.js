@@ -1,6 +1,6 @@
-async ({ inputs, context }) => {
-  const content = await context.render.getContent({}, 'json')
-  const unique = context.render.hash.slice(-5)
+async ({ inputs, render }) => {
+  const content = await render.getContent({}, 'json')
+  const unique = render.hash.slice(-5)
   const script = `
     const data = ${JSON.stringify(content, null, 2)}
     const options = {

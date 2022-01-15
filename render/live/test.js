@@ -1,5 +1,5 @@
-export default ({ content }) => {
+export default ({ render }) => {
   const root = document.createElement('span')
-  root.innerText = content.toString()
+  root.innerText = render.content.toString()
   return root
 }

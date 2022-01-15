@@ -1,4 +1,4 @@
-async ({ context }) => {
-  const content = await context.render.getContent()
+async ({ render }) => {
+  const content = await render.getContent()
   return { html: `<code>${content}</code>` }
 }
