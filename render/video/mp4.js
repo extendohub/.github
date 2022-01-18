@@ -1,12 +1,12 @@
-export default ({ inputs, context }) => {
-  const { _ } = context
+export default ({ inputs, helpers, render }) => {
+  const { _ } = helpers
   const { controls, autoplay } = inputs
   const setup = { controls: _.defaultTo(controls, true), autoplay: _.defaultTo(autoplay, false) }
   const html = `
       <div class="egh-center-justified" >
         <div class="egh-tm-10" >
           <video id="rendered" class="video-js vjs-big-play-centered" preload="auto" data-setup='${JSON.stringify(setup)}' >
-            <source src=${context.target.url} type="video/mp4" />
+            <source src=${render.contentUrl} type="video/mp4" />
           </video>
         </div >
       </div >`

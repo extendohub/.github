@@ -1,7 +1,7 @@
 import https from 'https'
 
 export default async ({ render }) => {
-  const { content } = render
+  const content = await render.getContent()
   let file = null
   let node = null
   if (content.match(/^https:\/\/(www.)?figma.com\/file/)) {
