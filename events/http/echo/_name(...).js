@@ -13,7 +13,7 @@ const handlers = {
     return current
   },
   post: async (request, response, { helpers, log }) => {
-    const { path, body, params, query } = request
+    const { resource, path, body, params, query } = request
     const old = await helpers.keyValue.get(path)
     await helpers.keyValue.set(path, body)
     log.info(`Hello ${params.name}(${query.who}) from ${resource.typeName} ${resource.name}\nSetting value for ${path} to ${JSON.stringify(body)}`)
