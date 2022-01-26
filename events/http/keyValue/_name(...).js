@@ -1,6 +1,5 @@
-export default async ({ events, helpers, context, log }) => {
+export default async ({ events, helpers, log }) => {
   const { request, response } = events.payload
-  request.params = context.config.params
   const handler = handlers[request.method]
   return handler ? handler(request, response, { helpers, log }) : { ...response, status: 404 }
 }
