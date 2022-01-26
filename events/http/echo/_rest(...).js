@@ -5,13 +5,13 @@ export default async ({ events, helpers, log }) => {
 }
 
 const handlers = {
-  handleGet: async (request, response, { helpers, log }) => {
+  get: async (request, response, { helpers, log }) => {
     const { resource, path, params } = request
     const current = await helpers.keyValue.get(path)
     log.info(`The current value is: ${current}`)
     return `Hello ${params.name} from ${resource.typeName} ${resource.name}\nThe value at path: "${path}" is:\n${JSON.stringify(current)}\n`
   },
-  handlePost: async (request, response, { helpers, log }) => {
+  post: async (request, response, { helpers, log }) => {
     const { path, body } = request
     const old = await helpers.keyValue.get(path)
     await helpers.keyValue.set(path, body)
