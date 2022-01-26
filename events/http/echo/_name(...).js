@@ -11,7 +11,7 @@ const handlers = {
     const { name } = params
     const current = await helpers.keyValue.get(name)
     log.info(`Hello ${name}(${query.who}) from ${resource.typeName} ${resource.name}\nThe value at "${name}" is:\n${JSON.stringify(current)}\n`)
-    return { value: current }
+    return current
   },
   post: async (request, response, { helpers, log }) => {
     const { resource, params, query, body } = request
@@ -19,6 +19,6 @@ const handlers = {
     const old = await helpers.keyValue.get(name)
     await helpers.keyValue.set(name, body)
     log.info(`Hello ${name}(${query.who}) from ${resource.typeName} ${resource.name}\nSetting value at "${name}" to: ${JSON.stringify(body)}`)
-    return { value: old }
+    return old
   }
 }
