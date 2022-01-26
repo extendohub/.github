@@ -1,4 +1,0 @@
-name: extendo-rest install
-description: Installation of the extendo-rest app
-installation:
-  uses: apps://extendo-rest@v1.0
