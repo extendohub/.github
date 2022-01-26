@@ -7,16 +7,18 @@ export default async ({ events, helpers, context, log }) => {
 
 const handlers = {
   get: async (request, response, { helpers, log }) => {
-    const { resource, path, params, query } = request
-    const current = await helpers.keyValue.get(path)
-    log.info(`Hello ${params.name}(${query.who}) from ${resource.typeName} ${resource.name}\nThe value at path: "${path}" is:\n${JSON.stringify(current)}\n`)
-    return current
+    const { resource, params, query } = request
+    const { name } = params
+    const current = await helpers.keyValue.get(name)
+    log.info(`Hello ${name}(${query.who}) from ${resource.typeName} ${resource.name}\nThe value at "${name}" is:\n${JSON.stringify(current)}\n`)
+    return { value: current }
   },
   post: async (request, response, { helpers, log }) => {
-    const { resource, path, body, params, query } = request
-    const old = await helpers.keyValue.get(path)
-    await helpers.keyValue.set(path, body)
-    log.info(`Hello ${params.name}(${query.who}) from ${resource.typeName} ${resource.name}\nSetting value for ${path} to ${JSON.stringify(body)}`)
-    return old
+    const { resource, params, query, body } = request
+    const { name } = params
+    const old = await helpers.keyValue.get(name)
+    await helpers.keyValue.set(name, body)
+    log.info(`Hello ${name}(${query.who}) from ${resource.typeName} ${resource.name}\nSetting value at "${name}" to: ${JSON.stringify(body)}`)
+    return { value: old }
   }
 }
