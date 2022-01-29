@@ -1,0 +1,7 @@
+name: Mermaid chart rendering
+description: Render charts and cool diagrams with Mermaid
+
+render:
+  uses: image://jeffmcaffer/mermaid:1
+  with:
+    dummy: 'test arg'
