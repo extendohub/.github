@@ -3,5 +3,5 @@ description: Render XLSX files
 
 render:
   file:
-    uses: app-extensions/extendo-renderers/xlsx/xlsx.js
+    uses: extendohub/extendo-renderers/xlsx/xlsx.js
   
